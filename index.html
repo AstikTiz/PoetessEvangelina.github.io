@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Евангелина Соседова</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--text:#f6f2ff;--muted:rgba(246,242,255,.74);--line:rgba(255,255,255,.12);--shadow:0 22px 80px rgba(0,0,0,.42);--accent:#d9b8ff;--accent2:#8ecbff}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Inter',sans-serif;color:var(--text);background:linear-gradient(rgba(8,7,11,.14), rgba(8,7,11,.24)), url('images/bg.jpg') center/cover fixed no-repeat;overflow-x:hidden}
+    body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);background-size:22px 22px;opacity:.15;pointer-events:none}
+    .wrap{width:min(1180px, calc(100% - 32px)); margin:0 auto; position:relative; z-index:1}
+    .hero{min-height:100vh; display:grid; align-items:center; position:relative; padding:32px 0 54px; border-bottom:1px solid rgba(255,255,255,.08)}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+    .hero-image{border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:var(--shadow)}
+    .hero-image img{display:block;width:100%;height:520px;object-fit:cover}
+    .kicker{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;color:var(--muted)}
+    h1,h2,h3{font-family:'Cormorant Garamond',serif;margin:0;line-height:.92}
+    h1{font-size:clamp(3.5rem,8vw,7.2rem);max-width:10ch}
+    .subtitle{max-width:64ch;margin:18px 0 0;color:var(--muted);font-size:1.04rem;line-height:1.85}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+    .btn{display:inline-block;padding:13px 17px;border:1px solid var(--line);border-radius:14px;color:var(--text);text-decoration:none;background:rgba(255,255,255,.05);box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+    .btn.primary{background:linear-gradient(135deg, rgba(217,184,255,.22), rgba(142,203,255,.16))}
+    section{padding:66px 0}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:20px}
+    .section-head p{max-width:68ch;color:var(--muted);line-height:1.75;margin:0}
+    .grid{display:grid;gap:18px}
+    .three{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));border-radius:22px;padding:22px;box-shadow:var(--shadow);backdrop-filter:blur(12px);overflow:hidden}
+    .card p{color:var(--muted);line-height:1.78;margin:8px 0 0}
+    .photo-block{padding:0}
+    .photo-block img{display:block;width:100%;height:240px;object-fit:cover}
+    .photo-block div{padding:16px 18px;border-top:1px solid rgba(255,255,255,.08)}
+    .support{background:linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.06))}
+    .slider-wrap{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center}
+    .slider-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(300px,1fr);gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:none}.slider-track::-webkit-scrollbar{display:none}
+    .slider-btn{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:#fff;font-size:1.6rem;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .mini-orn{display:flex;gap:10px;align-items:center;color:rgba(255,255,255,.55);margin-top:10px;font-size:.9rem}.mini-orn:before,.mini-orn:after{content:'✦';font-size:.7rem;opacity:.6}
+    .float-orn{position:fixed;pointer-events:none;opacity:.14;z-index:0;animation:drift 14s ease-in-out infinite alternate}
+    .f1{left:1.5vw;top:12vh;width:96px;transform:rotate(-18deg)}
+    .f2{right:2vw;top:24vh;width:90px;transform:rotate(13deg);animation-delay:2s}
+    .f3{left:6vw;bottom:10vh;width:86px;transform:rotate(9deg);animation-delay:4s}
+    @keyframes drift{from{transform:translateY(0) rotate(var(--r,0deg))}to{transform:translateY(-18px) rotate(calc(var(--r,0deg) + 6deg))}}
+    @media (max-width:980px){.hero-grid,.three,.slider-wrap{grid-template-columns:1fr}.hero-image img{height:360px}h1{max-width:12ch}.slider-btn{display:none}}
+  </style>
+</head>
+<body>
+  <img class="float-orn f1" src="images/feather-1.png" alt="" aria-hidden="true">
+  <img class="float-orn f2" src="images/feather-2.png" alt="" aria-hidden="true">
+  <img class="float-orn f3" src="images/feather-3.png" alt="" aria-hidden="true">
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-image"><img src="images/poetess.jpg" alt="Фото поэтессы"></div>
+      <div>
+        <div class="kicker"><span>Евангелина Соседова · поэзия, проза, музыка</span></div>
+        <h1>Евангелина Соседова</h1>
+        <p class="subtitle">Калининградская поэтесса, родившаяся в Хабаровске, автор стихов, песен и визуальных форм. Её путь соединяет дальневосточную интонацию, калининградскую культурную среду и сцену литературных встреч.</p>
+        <div class="actions">
+          <a class="btn primary" href="#about">О поэтессе</a>
+          <a class="btn" href="#works">Творческий путь</a>
+          <a class="btn" href="#gallery">Галерея</a>
+          <a class="btn" href="https://t.me/EvaVicina" target="_blank" rel="noopener">Telegram</a>
+          <a class="btn" href="https://stihi.ru/avtor/dafnaoced" target="_blank" rel="noopener">Стихи.ру</a>
+          <a class="btn" href="https://astiktizakemisadboy.bandcamp.com/album/ashes-from-the-wings" target="_blank" rel="noopener">Bandcamp</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section id="about">
+      <div class="section-head"><h2>О поэтессе</h2><p>Немного о художественном голосе и общей линии авторского пути.</p></div>
+      <div class="grid three">
+        <article class="card"><h3>Хабаровск — Калининград</h3><p>Евангелина Соседова родилась на Дальнем Востоке, в Хабаровске, а творческая и публичная жизнь поэтессы связана с Калининградом. Этот географический контраст слышен в её интонации: в ней есть даль, движение и внимательная наблюдательность к городу, людям и памяти.</p></article>
+        <article class="card"><h3>Поэтическая речь</h3><p>В стихах заметны образность, внутренняя музыка строки и стремление к точной, почти ювелирной фразе. Её тексты живут между исповедальностью, символом и сценической выразительностью.</p></article>
+        <article class="card"><h3>Музыка и слово</h3><p>Автор соединяет литературный текст с песенной формой и визуальной подачей, создавая цельное пространство, где стихотворение может звучать как чтение, песня или графический образ.</p></article>
+      </div>
+    </section>
+    <section id="works">
+      <div class="section-head"><h2>Творческий путь</h2><p>Здесь собраны более развёрнутые описания выступлений и культурных событий, связанных с автором.</p></div>
+      <div class="slider-wrap">
+        <button class="slider-btn prev" type="button" aria-label="Предыдущая карточка">‹</button>
+        <div class="slider-track">
+          <article class="card photo-block"><img src="images/decor-1.jpg" alt="Декор"><div><h3>День дагестанской поэзии</h3><p>Участие в событии, посвящённом дагестанской поэзии, подчёркивает интерес Евангелины Соседовой к живой литературной традиции и к диалогу между разными культурными регионами. Для поэта такие встречи важны не только как площадка для чтения, но и как пространство обмена интонациями, ритмами и памятью о поэтическом слове.</p></div></article>
+          <article class="card photo-block"><img src="images/decor-2.jpg" alt="Декор"><div><h3>БФУ им. И. Канта</h3><p>Поэтический вечер в БФУ им. И. Канта показывает присутствие автора в университетской и городской культурной жизни Калининграда. Такие выступления обычно собирают слушателей, которым интересен не только текст, но и его звучание: пауза, дыхание, интонация, реакция зала.</p></div></article>
+          <article class="card photo-block"><img src="images/decor-3.jpg" alt="Декор"><div><h3>Поэтические чтения</h3><p>Чтения, организованные при участии ЛДПР, добавляют к её биографии ещё один публичный формат, где литературный текст выходит из частной тишины в пространство сцены. Подобные события обычно объединяют разных авторов и позволяют увидеть, как поэзия живёт в непосредственном общении со слушателем.</p></div></article>
+          <article class="card photo-block"><img src="images/decor-4.jpg" alt="Декор"><div><h3>Калининградская сцена</h3><p>Творческий путь Евангелины связан с калининградской литературной средой, где особенно заметны камерность, точность слова и интерес к авторскому голосу. В такой среде поэт часто становится не только участником, но и формирователем общей атмосферы чтений, встреч и публикаций.</p></div></article>
+          <article class="card photo-block"><img src="images/decor-5.jpg" alt="Декор"><div><h3>Музыкальный проект</h3><p>Проект AstikTiz&Akemi_Sadboy помогает увидеть её не только как автора стихов, но и как человека, для которого музыка и литература взаимно усиливают друг друга. В этом соединении слышны и ритм, и образ, и желание превратить текст в переживание.</p></div></article>
+          <article class="card photo-block"><img src="images/book-cover.jpg" alt="Обложка книги Закоулок"><div><h3>«Закоулок»</h3><p>Книга «Закоулок» готовится к печати, и этот проект заслуживает поддержки донатом. Само название уже задаёт настроение укромного, личного и одновременно очень точного поэтического пространства, где маленькая деталь может оказаться главным смысловым центром.</p></div></article>
+        </div>
+        <button class="slider-btn next" type="button" aria-label="Следующая карточка">›</button>
+      </div>
+      <div class="mini-orn">листай карточки</div>
+    </section>
+    <section id="gallery">
+      <div class="section-head"><h2>Галерея</h2></div>
+      <div class="grid three">
+        <article class="card photo-block"><img src="images/poetess.jpg" alt="Фото поэтессы"><div><h3>Портрет</h3><p>Фото автора.</p></div></article>
+        <article class="card photo-block"><img src="images/book-cover.jpg" alt="Обложка книги Закоулок"><div><h3>Обложка</h3><p>Будущая книга «Закоулок».</p></div></article>
+        <article class="card photo-block"><img src="images/decor-1.jpg" alt="Декор"><div><h3>Декор</h3><p>Визуальный мотив для страницы.</p></div></article>
+      </div>
+    </section>
+    <section><div class="card support"><h2>Поддержать печать</h2><p>«Закоулок» готовится к печати, и автор будет рада донатам на выпуск книги.</p></div></section>
+  </main>
+  <script>
+    document.querySelectorAll('.slider-wrap').forEach(slider=>{const track=slider.querySelector('.slider-track');slider.querySelector('.prev').addEventListener('click',()=>track.scrollBy({left:-track.clientWidth*0.9,behavior:'smooth'}));slider.querySelector('.next').addEventListener('click',()=>track.scrollBy({left:track.clientWidth*0.9,behavior:'smooth'}));});
+  </script>
+</body>
+</html>
