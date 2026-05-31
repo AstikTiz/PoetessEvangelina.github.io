@@ -1,0 +1,84 @@
+name: Build Android live-wallpaper APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'
+    paths:
+      - 'android-live-wallpaper/**'
+      - '.github/workflows/android-live-wallpaper-apk.yml'
+      - 'android-apk.html'
+
+permissions:
+  contents: write
+
+jobs:
+  build-apk:
+    name: Build debug APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.10.2'
+
+      - name: Install Android SDK packages
+        run: |
+          yes | sdkmanager --licenses >/dev/null || true
+          sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+
+      - name: Package App Builder source
+        run: |
+          mkdir -p dist
+          git archive --format=zip \
+            --output=dist/zakoulok-waifu-wallpaper-app-builder-source.zip \
+            HEAD:android-live-wallpaper
+
+      - name: Upload App Builder source artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zakoulok-waifu-wallpaper-app-builder-source
+          path: dist/zakoulok-waifu-wallpaper-app-builder-source.zip
+          if-no-files-found: error
+
+      - name: Build APK
+        working-directory: android-live-wallpaper
+        run: gradle :app:assembleDebug
+
+      - name: Prepare downloadable APK
+        run: |
+          mkdir -p dist
+          cp android-live-wallpaper/app/build/outputs/apk/debug/app-debug.apk \
+            dist/zakoulok-waifu-wallpaper-debug.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zakoulok-waifu-wallpaper-debug
+          path: dist/zakoulok-waifu-wallpaper-debug.apk
+          if-no-files-found: error
+
+      - name: Publish stable debug APK release
+        # The direct download URL returns 404 until this step has created the
+        # android-live-wallpaper-latest release asset. Run this workflow from
+        # any branch, or merge it to the default branch, to publish the APK.
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete android-live-wallpaper-latest --yes --cleanup-tag || true
+          gh release create android-live-wallpaper-latest \
+            dist/zakoulok-waifu-wallpaper-debug.apk \
+            --title 'Zakoulok Waifu Wallpaper APK' \
+            --notes 'Debug APK for the Android live-wallpaper prototype. Weather and notification features require Android permissions; without them the wallpaper still runs with the limited visual/time/battery functionality.'
