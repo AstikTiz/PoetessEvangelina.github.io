@@ -1,0 +1,21 @@
+pluginManagement {
+    repositories {
+        // This is the repository that hosts the Android Gradle Plugin.
+        // It helps only when the build machine can reach Google Maven or has
+        // the plugin artifacts cached locally for --offline builds.
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'ZakoulokWaifuWallpaper'
+include ':app'
